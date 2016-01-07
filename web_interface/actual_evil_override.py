@@ -27,8 +27,10 @@ def main():
         cmd_output = subprocess.check_output('git  --work-tree=/home/pi/sploshify/ --git-dir=/home/pi/sploshify/.git pull origin master', shell=True).replace("\n",'<br>')
         body += "<h3>%s</h3>" % cmd_output
 
+    body += "<h2>Player Control</h2>"
     body += "<a href='?skip_track=true' class='button'>skip track</a>"
     body += "<a href='?reset_evil=true' class='button'>reset evil</a>"
+    body += "<h2>Admin</h2>"
     body += "<a href='?pull_new_code=true' class='button'>pull latest sploshify code</a>"
 
 
