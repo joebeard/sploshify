@@ -29,7 +29,7 @@ def main():
 
     body += "<a href='?skip_track=true' class='button'>skip track</a>"
     body += "<a href='?reset_evil=true' class='button'>reset evil</a>"
-    body += "<a href='?rpull_new_code=true' class='button'>pull latest sploshify code</a>"
+    body += "<a href='?pull_new_code=true' class='button'>pull latest sploshify code</a>"
 
 
     output(body=sploshify_body(body))
