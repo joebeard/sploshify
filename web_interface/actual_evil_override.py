@@ -23,9 +23,13 @@ def main():
     if 'reset_evil' in form:
         mysql_cursor.execute('DELETE FROM playlist WHERE media_id IN (SELECT id FROM media WHERE safe="evil")')
         body += "<h3>Evil has been unleashed...</h3>"
+    if 'pull_new_code' in form:
+        cmd_output = subprocess.check_output('git  --work-tree=/home/pi/sploshify/ --git-dir=/home/pi/sploshify/.git pull origin master', shell=True).replace("\n",'<br>')
+        body += "<h3>%s</h3>" % cmd_output
 
     body += "<a href='?skip_track=true' class='button'>skip track</a>"
     body += "<a href='?reset_evil=true' class='button'>reset evil</a>"
+    body += "<a href='?rpull_new_code=true' class='button'>pull latest sploshify code</a>"
 
 
     output(body=sploshify_body(body))
