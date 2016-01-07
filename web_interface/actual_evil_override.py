@@ -17,6 +17,12 @@ def main():
     
     body = "<h2>The Real Evil Override</h2>"
     
+    if 'start' in form:
+        cmd_output = subprocess.check_output('supervisorctl start sploshify_player', shell=True).replace("\n",'<br>')
+        body += "<h3>%s</h3>" % cmd_output
+    if 'stop' in form:
+        cmd_output = subprocess.check_output('supervisorctl stop sploshify_player', shell=True).replace("\n",'<br>')
+        body += "<h3>%s</h3>" % cmd_output
     if 'skip_track' in form:
         cmd_output = subprocess.check_output('supervisorctl restart sploshify_player', shell=True).replace("\n",'<br>')
         body += "<h3>%s</h3>" % cmd_output
@@ -28,7 +34,10 @@ def main():
         body += "<h3>%s</h3>" % cmd_output
 
     body += "<h2>Player Control</h2>"
-    body += "<a href='?skip_track=true' class='button'>skip track</a>"
+    body += "<a href='?start=true' class='button'>Start Player</a>"
+    body += "<a href='?stop=true' class='button'>Stop Player</a>"
+    body += "<a href='?skip_track=true' class='button'>Skip Track</a>"
+    body += "<h2>Play-List Control</h2>"
     body += "<a href='?reset_evil=true' class='button'>reset evil</a>"
     body += "<h2>Admin</h2>"
     body += "<a href='?pull_new_code=true' class='button'>pull latest sploshify code</a>"
