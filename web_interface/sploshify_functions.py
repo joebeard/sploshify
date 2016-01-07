@@ -29,6 +29,8 @@ def get_current_playlist(mysql_cursor):
     table += "</table>"
     return table
 
+
+
 def get_now_playing(mysql_cursor):
     mysql_cursor.execute("""SELECT *, TIME_TO_SEC(TIMEDIFF(NOW(),played)) FROM playlist 
             LEFT JOIN media on media.id = playlist.media_id
@@ -42,11 +44,10 @@ def get_now_playing(mysql_cursor):
         last_played = last_played[0]
 
     if last_played[8] >= last_played[11]:
-        return "%s - %s (%ss remaining)" % (last_played[6], last_played[5], int(last_played[8])-int(last_played[11]))
+        return "%s - %s (~%ss remaining)" % (last_played[6], last_played[5], int(last_played[8])-int(last_played[11]))
     else:
         return "Nothing Currently Playing"
 
-    return str(last_played)
 
 def get_playable_selection(mysql_cursor, safety = 'goodish'):
     mysql_cursor.execute("""SELECT * 
@@ -68,6 +69,8 @@ def get_playable_selection(mysql_cursor, safety = 'goodish'):
     
     return mysql_cursor.fetchall()
 
+
+
 def get_full_track_list(mysql_cursor):
     table = "<table>"
     for safe in ['good','goodish','evil', 'dont_play']:
@@ -82,6 +85,9 @@ def get_full_track_list(mysql_cursor):
     table += "\n</table>"
     return table
 
+
+
+
 def output(head = "", body = None):
     print "Content-Type: text/html;charset=utf-8\n"
     print 
@@ -93,8 +99,16 @@ def output(head = "", body = None):
     print body
     print "</body></html>"
 
-def sploshify_body(text):
     
+    
+def output_raw_text(text = None):
+    print "Content-Type: text/html;charset=utf-8\n"
+    print
+    print text
+    
+    
+    
+def sploshify_body(text):
     return """
 <div id='main'>
     <h1>Sploshify</h1>
@@ -107,6 +121,8 @@ def sploshify_body(text):
     %s
     </div>
     """ % text
+
+
 
 def save_uploaded_file (form, form_field, upload_dir, mysql_cursor):
     """This saves a file uploaded by an HTML form.

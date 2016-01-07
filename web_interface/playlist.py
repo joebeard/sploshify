@@ -2,6 +2,7 @@
 # -*- coding: utf-8 -*-
 
 import logging, MySQLdb, time, cgitb, cgi
+from sploshify_functions import *
 
 cgitb.enable()
 
@@ -26,12 +27,6 @@ def get_current_playlist(mysql_cursor):
         queue_position += 1
     table += "</table>"
     return table
-
-
-def output_raw_text(text = None):
-    print "Content-Type: text/html;charset=utf-8\n"
-    print
-    print text
 
 def main():
     mysql_connect_object = MySQLdb.connect(host=mysql_host, user=mysql_username, passwd=mysql_password, db=mysql_db)
