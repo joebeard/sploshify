@@ -12,7 +12,13 @@ def main():
     mysql_connect_object.autocommit(True)
     mysql_cursor = mysql_connect_object.cursor()
 
-    now_playing = get_now_playing(mysql_cursor)
+    now_playing = get_now_playing_details(mysql_cursor)
+    body = """<table class='player'>
+    <tr><th>Artist:</th><td>%s</td></tr>
+    <tr><th>Title:</th><td>%s</td></tr>
+    <tr><th>Time Left:</th><td>%s</td></tr>
+    </table>""" % now_playing
+    
     body  = "<h3>%s</h3>" % now_playing
     
     output_raw_text(body)

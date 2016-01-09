@@ -48,7 +48,21 @@ def get_now_playing(mysql_cursor):
     else:
         return "Nothing Currently Playing"
 
+def get_now_playing_details(mysql_cursor):
+    mysql_cursor.execute("""SELECT artist, track, duration-TIME_TO_SEC(TIMEDIFF(NOW(),played)) FROM playlist 
+            LEFT JOIN media on media.id = playlist.media_id
+            WHERE played IS NOT NULL ORDER BY played DESC LIMIT 1""")
+    
+    last_played = mysql_cursor.fetchall()
 
+    if len(last_played) == 0:
+        return "Nothing Currently Playing"
+    else:
+        if last_played[0][3] >= 0:
+            return last_plated[0]
+        else:
+            return ("Nothing Currently Playing","NA","NA")
+    
 def get_playable_selection(mysql_cursor, safety = 'goodish'):
     mysql_cursor.execute("""SELECT * 
     FROM media AS A
