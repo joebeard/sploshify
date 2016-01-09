@@ -18,9 +18,7 @@ def main():
     <tr><th>Title:</th><td>%s</td></tr>
     <tr><th>Time Left:</th><td>%s</td></tr>
     </table>""" % now_playing
-    
-    body  = "<h3>%s</h3>" % now_playing
-    
+        
     output_raw_text(body)
 
 
