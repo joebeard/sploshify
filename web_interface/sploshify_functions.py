@@ -59,7 +59,7 @@ def get_now_playing_details(mysql_cursor):
         return "Nothing Currently Playing"
     else:
         if last_played[0][2] >= 0:
-            return last_plated[0]
+            return last_played[0]
         else:
             return ("Nothing Currently Playing","NA","NA")
     
