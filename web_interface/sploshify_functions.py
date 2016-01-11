@@ -170,8 +170,8 @@ def save_uploaded_file (form, form_field, upload_dir, mysql_cursor):
         id3 = mutagen.id3.ID3(filename)
         
         if id3.get('TIT2', 'Unknown') == 'Unknown' or id3.get('TPE1', 'Unknown') == 'Unknown':
+            os.remove(filename)
             return "Could not read ID3 tags, please edit the file to include them: (Artist:%s - Title:%s)" % (id3.get('TPE1', 'Unknown'), id3.get('TIT2', 'Unknown'))
-        
         
         mysql_cursor.execute("""INSERT INTO media (location, title, artist, album, duration, safe) 
             VALUES (%s, %s, %s, %s, %s, %s)""", (filename, 
