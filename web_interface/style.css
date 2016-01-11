@@ -10,17 +10,17 @@ p {
 
 #wrapper {
     margin: 0 auto;
-    width: 800px;
+    max-width: 800px;
 }
 
 #contentwrap {
-    width: 800;
+    max-width: 800;
     float: left;
     margin: 0 auto;
 }
 
 #content, #header {
-    width: 800px;
+    max-width: 800px;
     background: #37474f;
     border-radius: 10px;
     border: 1px solid #23333b;
@@ -96,10 +96,7 @@ table {
 .two_column {
     float: left; 
     vertical-align: top; 
-    width:375px;
-}
-.two_column_gutter {
-    float: left; 
-    vertical-align: top; 
-    width:50px;
+    max-width:375px;
+    min-width:300px;
+    margin: 5px;
 }

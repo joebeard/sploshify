@@ -3,7 +3,7 @@
 
 import pydub, os, logging, MySQLdb, mutagen.id3
 
-media_directory = '/home/pi/sploshify/media/'
+media_directory = '/sploshify_media'
 
 mysql_username = 'sploshify'
 mysql_password = 'sploshify1'
@@ -35,6 +35,7 @@ def main():
 
     	    except Exception as e:
     	        logging.info('Something couldnt load %s - %s' % (file, e))
+                
             else:
                 pass
 
