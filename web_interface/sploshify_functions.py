@@ -14,6 +14,12 @@ mysql_host = 'localhost'
 mysql_db = 'sploshify'
 
 
+
+def seconds_to_minutes(seconds):
+    minutes = int(seconds)/60
+    seconds = seconds % 60
+    return "%sm%ss" % (minutes, seconds)
+
 def get_current_playlist(mysql_cursor):
     mysql_cursor.execute("""SELECT * FROM playlist 
             LEFT JOIN media ON playlist.media_id = media.id
@@ -29,24 +35,6 @@ def get_current_playlist(mysql_cursor):
     table += "</table>"
     return table
 
-
-
-def get_now_playing(mysql_cursor):
-    mysql_cursor.execute("""SELECT *, TIME_TO_SEC(TIMEDIFF(NOW(),played)) FROM playlist 
-            LEFT JOIN media on media.id = playlist.media_id
-            WHERE played IS NOT NULL ORDER BY played DESC LIMIT 1""")
-    
-    last_played = mysql_cursor.fetchall()
-
-    if len(last_played) == 0:
-        return "Nothing Currently Playing"
-    else:
-        last_played = last_played[0]
-
-    if last_played[8] >= last_played[11]:
-        return "%s - %s (~%ss remaining)" % (last_played[6], last_played[5], int(last_played[8])-int(last_played[11]))
-    else:
-        return "Nothing Currently Playing"
 
 def get_now_playing_details(mysql_cursor):
     mysql_cursor.execute("""SELECT artist, title, duration-TIME_TO_SEC(TIMEDIFF(NOW(),played)) FROM playlist 
@@ -136,6 +124,7 @@ def sploshify_body(text):
     </div>
     """ % text
 
+    
 
 
 def save_uploaded_file (form, form_field, upload_dir, mysql_cursor):

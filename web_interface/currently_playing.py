@@ -17,7 +17,7 @@ def main():
     <tr><th>Artist:</th><td>%s</td></tr>
     <tr><th>Title:</th><td>%s</td></tr>
     <tr><th>Time Left:</th><td>%s</td></tr>
-    </table>""" % now_playing
+    </table>""" % (now_playing[0], now_playing[1], seconds_to_minutes(now_playing[2]))
         
     output_raw_text(body)
 
