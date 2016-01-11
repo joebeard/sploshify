@@ -39,6 +39,9 @@ p {
 table {
     background-color: white;
     color: #2A373E;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;    
 }
 
 .button {

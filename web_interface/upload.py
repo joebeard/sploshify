@@ -21,15 +21,18 @@ def main():
     body += "<h3>%s</h3>" % save_uploaded_file (form, "mp3", UPLOAD_DIR, mysql_cursor)
     
     body += """<form action="upload.py" method="POST" enctype="multipart/form-data">
-File name: <input name="mp3" type="file"><br>
-File rating: <select name='safe'>
+<table>
+<tr><th>File name</th><td><input name="mp3" type="file"></td></tr>
+<tr><th>File rating</th><td><select name='safe'>
 <option value='goodish'>good-ish</option>
 <option value='evil'>evil</option>
-</select><input name="submit" type="submit"><br>
-
-Warning after clicking submit the it may take a little while for the mp3 to upload and process.<br>
-Please be patient :)
-
+</select></td></tr>
+<tr><th colspan='2' align='center'>
+<input name="submit" type="submit"></th></tr>
+</table>
+</form>
+Please note: after clicking submit the it may take a little while for the mp3 to upload and process. Please be patient :)
+<br>
 """
 
     output(body=sploshify_body(body))
