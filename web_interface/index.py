@@ -19,7 +19,7 @@ def main():
     head = """<script src="http://code.jquery.com/jquery-latest.js"></script>
 <script> $(document).ready(function() { $("#currently_playing").load("currently_playing.py"); $("#playlist").load("playlist.py"); var refreshId_cp = setInterval(function() { $("#currently_playing").load('currently_playing.py'); }, 5000); var refreshId_pl = setInterval(function() { $("#playlist").load('playlist.py'); }, 10000); $.ajaxSetup({ cache: false }); }); </script>"""
 
-    body = "<span style='float: left; vertical-align: top;'>"
+    body = "<div style='float: left; vertical-align: top;'>"
     body += "<h2>Currently Playing</h2><div id='currently_playing'><h3>Loading...</h3></div>"
     
 
@@ -62,8 +62,8 @@ def main():
     else:
         body += "<p>Sorry no evil music is currently available. Sad Face.</p>"
 
-    body += "</span><span style='float: left; width:50px;'>&nbsp;</span><span style='float: left; vertical-align: top;'><div>"
-    body += "<H2>Up Next</h2><div  id='playlist'>Loading...</div></div></span>"
+    body += "</div><div style='float: left; width:50px;'>&nbsp;</span><span style='float: left; vertical-align: top;'><div>"
+    body += "<H2>Up Next</h2><div  id='playlist'>Loading...</div></div></div>"
 
     output(head, sploshify_body(body))
 
