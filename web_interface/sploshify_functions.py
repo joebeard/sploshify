@@ -128,7 +128,7 @@ def sploshify_body(text):
     <div id="content">
     %s
     </div>
-    <div class='clearer'><br></div>
+    <div class='clearer'><br><br></div>
     </div>
     """ % text
 
