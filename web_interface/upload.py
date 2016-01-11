@@ -31,8 +31,9 @@ def main():
 <input name="submit" type="submit"></th></tr>
 </table>
 </form>
-Please note: after clicking submit the it may take a little while for the mp3 to upload and process. Please be patient :)
 <br>
+Please note: after clicking submit the it may take a little while for the mp3 to upload and process. Please be patient :)
+<br><br>
 """
 
     output(body=sploshify_body(body))
