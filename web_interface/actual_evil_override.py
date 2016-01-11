@@ -58,7 +58,7 @@ def main():
     
     body += "</select><select name='safe'><option value='good'>Good</option><option value='goodish'>Good-ish</option><option value='evil'>Evil</option><option value='dont_play'>Do Not Play</option></select><input type='submit' value='Re-Classify'></form>"
     body += "<h2>Admin</h2>"
-    body += "<a href='?pull_new_code=true' class='button'>pull latest sploshify code</a>"
+    body += "<a href='?pull_new_code=true' class='button'>pull latest sploshify code</a><br><br>"
 
 
     output(body=sploshify_body(body))
