@@ -123,11 +123,12 @@ def sploshify_body(text):
         <a class='button' href='/upload.py'>Make a Deposit</a>
         <a class='button' href='/evil_override.py'>Evil Override</a>
     </div>
+    <br>
     </div>
     <div id="content">
     %s
     </div>
-    <div class='clearer'></div>
+    <div class='clearer'><br></div>
     </div>
     """ % text
 
