@@ -26,3 +26,7 @@ table {
     padding: 8px 12px;
     text-decoration: none;
 }
+
+.clearer {
+    clear: both;   
+}

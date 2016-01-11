@@ -121,6 +121,7 @@ def sploshify_body(text):
         <a class='button' href='/evil_override.py'>Evil Override</a>
     </div>
     %s
+    <div class='clearer'></div>
     </div>
     """ % text
 
