@@ -62,7 +62,7 @@ def main():
     else:
         body += "<p>Sorry no evil music is currently available. Sad Face.</p>"
 
-    body += "</div><div style='float: left; width:50px;'>&nbsp;</div><div style='float: left; vertical-align: top; width:350px;'><div>"
+    body += "</div><div style='float: left; width:50px;'>&nbsp;</div><div class='two_column'><div>"
     body += "<H2>Up Next</h2><div  id='playlist'>Loading...</div></div></div>"
 
     output(head, sploshify_body(body))
