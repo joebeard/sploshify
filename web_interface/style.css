@@ -20,6 +20,7 @@ p {
 }
 
 #content, #header {
+    width: 800px;
     background: #37474f;
     border-radius: 10px;
     border: 1px solid #23333b;
@@ -31,6 +32,8 @@ p {
 #currently_playing, #playlist {
     background-color: #FFFFFF;
     color: #2A373E;
+    border-radius: 10px;
+    padding: 5px;
 }
 table {
     background-color: white;
