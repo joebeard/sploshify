@@ -52,6 +52,9 @@ def get_now_playing_details(mysql_cursor):
             return ("Nothing Currently Playing","NA","NA")
     
 def get_playable_selection(mysql_cursor, safety = 'goodish'):
+    
+    min_wait_period = {'good':12, 'goodish':4, 'evil':12}
+    
     mysql_cursor.execute("""SELECT * 
     FROM media AS A
     LEFT JOIN
@@ -66,8 +69,8 @@ def get_playable_selection(mysql_cursor, safety = 'goodish'):
     ON C.media_id = B.media_id
     WHERE in_playlist IS NULL
         AND safe = %s
-        AND (last_played <= DATE_SUB(NOW(), INTERVAL 24 hour) OR last_played IS NULL)
-    ORDER BY artist, title""", (safety,))
+        AND (last_played <= DATE_SUB(NOW(), INTERVAL %s hour) OR last_played IS NULL)
+    ORDER BY artist, title""", (safety, min_wait_period[safety]))
     
     return mysql_cursor.fetchall()
 
