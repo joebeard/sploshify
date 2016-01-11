@@ -93,7 +93,7 @@ def get_full_track_list(mysql_cursor):
 def output(head = "", body = None):
     print "Content-Type: text/html;charset=utf-8\n"
     print 
-    print "<!DOCTYPE HTML PUBLIC '-//W3C//DTD HTML 4.01 Transitional//EN'><html><head>"
+    print "<!DOCTYPE html><html><head>"
     print "<title>Sploshify - ZD London JukeBox</title>"
     print "<link rel='stylesheet' type='text/css' href='style.css'>"
     print head
@@ -112,7 +112,10 @@ def output_raw_text(text = None):
     
 def sploshify_body(text):
     return """
-<div id='main'>
+        <div id="wrapper">
+        <div id="contentwrap">
+        <div id="header">
+
     <h1>Sploshify</h1>
     <div id='menu'>
         <a class='button' href='/'>Player</a> 
@@ -120,7 +123,10 @@ def sploshify_body(text):
         <a class='button' href='/upload.py'>Make a Deposit</a>
         <a class='button' href='/evil_override.py'>Evil Override</a>
     </div>
+    </div>
+    <div id="content">
     %s
+    </div>
     <div class='clearer'></div>
     </div>
     """ % text

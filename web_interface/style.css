@@ -1,8 +1,32 @@
 body {
-    background: #1a334c;
-    color: white;
-    font-family: Oswald, Arial, San-Serief;
+    font-family: Oswald, Verdana, Arial, Helvetica, sans-serif;
+    font-size: 13px;
+    color:white;
 }
+
+p {
+    padding: 10px;
+}
+
+#wrapper {
+    margin: 0 auto;
+    width: 800px;
+}
+
+#contentwrap {
+    width: 800;
+    float: left;
+    margin: 0 auto;
+}
+
+#content {
+    background: #37474f;
+    border-radius: 10px;
+    border: 1px solid #23333b;
+    margin: 5px;
+}
+
+
 #currently_playing, #playlist {
     background-color: #FFFFFF;
     color: #2A373E;
