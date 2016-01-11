@@ -19,9 +19,6 @@ def main():
     head = """<script src="http://code.jquery.com/jquery-latest.js"></script>
 <script> $(document).ready(function() { $("#currently_playing").load("currently_playing.py"); $("#playlist").load("playlist.py"); var refreshId_cp = setInterval(function() { $("#currently_playing").load('currently_playing.py'); }, 5000); var refreshId_pl = setInterval(function() { $("#playlist").load('playlist.py'); }, 10000); $.ajaxSetup({ cache: false }); }); </script>"""
 
-    now_playing = get_now_playing(mysql_cursor)
-
-
     body = "<span style='float: left; vertical-align: top;'>"
     body += "<h2>Currently Playing</h2><div id='currently_playing'><h3>Loading...</h3></div>"
     
