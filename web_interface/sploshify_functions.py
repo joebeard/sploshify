@@ -20,20 +20,13 @@ def seconds_to_minutes(seconds):
     seconds = seconds % 60
     return "%sm%ss" % (minutes, seconds)
 
+
 def get_current_playlist(mysql_cursor):
     mysql_cursor.execute("""SELECT * FROM playlist 
             LEFT JOIN media ON playlist.media_id = media.id
             WHERE played IS NULL ORDER BY user_selected DESC, playlist.id ASC""")
-    unplayed = list(mysql_cursor.fetchall())
+    return mysql_cursor.fetchall()
 
-    queue_position = 1
-
-    table = "<table><tr><th>#</th><th>Artist</th><th>Track</th></tr>"
-    for track in unplayed:
-        table += "<tr><td>%s</td><td>%s</td><td>%s</td></tr>" % (queue_position, track[6], track[5])
-        queue_position += 1
-    table += "</table>"
-    return table
 
 
 def get_now_playing_details(mysql_cursor):
