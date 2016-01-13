@@ -90,7 +90,7 @@ def output(head = "", body = None):
     print "Content-Type: text/html;charset=utf-8\n"
     print 
     print "<!DOCTYPE html><html><head>"
-    print "<title>Sploshify - ZD London JukeBox</title>"
+    print "<title>Sploshify</title>"
     print "<link rel='stylesheet' type='text/css' href='style.css'>"
     print head
     print "</head><body>"
