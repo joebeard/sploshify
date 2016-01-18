@@ -16,10 +16,12 @@ mysql_db = 'sploshify'
 
 
 def seconds_to_minutes(seconds):
-    minutes = int(seconds)/60
-    seconds = seconds % 60
-    return "%sm%ss" % (minutes, seconds)
-
+    try:
+        minutes = int(seconds)/60
+        seconds = seconds % 60
+        return "%sm%ss" % (minutes, seconds)
+    except:
+        return "unknown"
 
 def get_current_playlist(mysql_cursor):
     mysql_cursor.execute("""SELECT * FROM playlist 
